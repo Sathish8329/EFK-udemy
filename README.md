@@ -4,28 +4,11 @@ Kubernetes logging mechanism using EFK (Elastic search, Kibana and Fluentd)
 Prerequisites
 Docker setup: https://docs.docker.com/engine/install/
 
-Kubectl installation: https://kubernetes.io/docs/tasks/tools/
-
-Minikube setup : https://minikube.sigs.k8s.io/docs/start/
+Kubectl installation: https://kubernetes.io/docs/tasks/tool
 
 helm setup - https://helm.sh/docs/intro/install/
 
-Yaml script basics
 
-kubernetes basics
-
-Helm basics
-
-docker version
-
-kubectl version
-
-minikube version
-
-helm version
-
-minikube start
-Implementation
 Step 1: Create Namespace
 
 kubectl create namespace efk-monitoring
@@ -34,6 +17,7 @@ Step 2: Add Elastic Helm Repository
 
 helm repo add elastic https://helm.elastic.co
 helm repo update
+
 
 Step 3: Install Elasticsearch
 
@@ -50,6 +34,8 @@ Step 5: Check the Installation
 helm list -n efk-monitoring
 kubectl get pods -n efk-monitoring
 kubectl get svc -n efk-monitoring
+
+
 
 Step 6: Install Kibana
 
