@@ -19,6 +19,10 @@ helm repo update
 ```
 
 ## Step 3: Install Elasticsearch
+Check CIS driver permission (AmazonEBSCSIDriverPolicy)
+```sh
+ helm install elasticsearch elastic/elasticsearch --version 7.17.3 -n logging   --set replicas=2   --set volumeClaimTemplate.storageClassName=ebs-sc   --set volumeClaimTemplate.resources.requests.storage=30Gi
+```
 ```sh
 helm install elasticsearch elastic/elasticsearch --version 7.17.3 -n efk-monitoring --set replicas=1
 ```
