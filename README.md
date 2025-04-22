@@ -18,6 +18,17 @@ helm repo add elastic https://helm.elastic.co
 helm repo update
 ```
 
+## Add storageclass if not present
+```
+kubectl apply -f - <<EOF
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ebs-sc
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+EOF
+```
 ## Step 3: Install Elasticsearch
 Check CIS driver permission (AmazonEBSCSIDriverPolicy) (use any one of three given below)
 ```sh
